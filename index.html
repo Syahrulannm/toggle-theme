@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toggle Tema - localStorage</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body id="body" class="transition-all duration-300">
+    <div class="min-h-screen flex flex-col justify-center items-center p-4">
+      <h1 id="judul" class="text-3xl font-bold mb-4">Loading...</h1>
+      <button onclick="gantiTema()" class="px-4 py-2 rounded bg-indigo-600 text-white hover:bg-indigo-700">Ganti Tema</button>
+    </div>
+
+    <script>
+      // Cek dan atur tema saat halaman dibuka
+      window.onload = function () {
+        const modeSimpan = localStorage.getItem("mode");
+
+        if (modeSimpan === "dark") {
+          aktifkanDarkMode();
+        } else {
+          aktifkanLightMode();
+        }
+      };
+
+      function gantiTema() {
+        if (document.body.classList.contains("bg-white")) {
+          aktifkanDarkMode();
+          localStorage.setItem("mode", "dark");
+        } else {
+          aktifkanLightMode();
+          localStorage.setItem("mode", "light");
+        }
+      }
+
+      //   Aktifkan Mode Gelap
+      function aktifkanDarkMode() {
+        const body = document.getElementById("body");
+        const judul = document.getElementById("judul");
+
+        body.classList.remove("bg-white", "text-gray-800");
+        body.classList.add("bg-gray-900", "text-white");
+        judul.innerText = "Mode Gelap";
+      }
+
+      function aktifkanLightMode() {
+        body.classList.remove("bg-gray-900", "text-white");
+        body.classList.add("bg-white", "text-gray-800");
+        judul.innerText = "Mode Terang";
+      }
+    </script>
+  </body>
+</html>
