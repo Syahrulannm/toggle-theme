@@ -27,6 +27,12 @@ Tema pilihanmu akan tetap tersimpan bahkan setelah halaman direfresh atau ditutu
 3. Klik tombol "Ganti Tema"
 4. Refresh halaman → mode tetap tersimpan
 
+## Preview
+
+[🔗 Live Demo via Netlify](https://dark-light-namsy.netlify.app)
+
 ---
 
 > Dibuat oleh **Syahrul Annam** – Front-End Developer Junior
+
+---
